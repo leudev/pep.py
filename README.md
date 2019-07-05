@@ -1,8 +1,4 @@
-# ⚠️ As of 26th June 2019, this repository has been deprecated and is not used in Ripple's stack anymore. It's left here just for historical reasons.
-## pep.py [![Code Health](https://landscape.io/github/osuripple/pep.py/master/landscape.svg?style=flat)](https://landscape.io/github/osuripple/pep.py/master)
 
-- Origin: https://git.zxq.co/ripple/pep.py
-- Mirror: https://github.com/osuripple/pep.py
 
 This is Ripple's bancho server. It handles:
 - Client login
@@ -45,6 +41,9 @@ you can run pep.py by typing
 $ python3 pep.py
 ```
 
+
+
+- Origin: https://git.zxq.co/ripple/pep.py
 ## License
 All code in this repository is licensed under the GNU AGPL 3 License.  
 See the "LICENSE" file for more information  
