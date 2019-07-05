@@ -18,5 +18,5 @@ def handle(userToken, packetData):
 		fokaMessage = "Your away message has been reset"
 	else:
 		fokaMessage = "Your away message is now: {}".format(packetData["awayMessage"])
-	userToken.enqueue(serverPackets.sendMessage("FokaBot", username, fokaMessage))
+	userToken.enqueue(serverPackets.sendMessage("Keesu", username, fokaMessage))
 	log.info("{} has changed their away message to: {}".format(username, packetData["awayMessage"]))

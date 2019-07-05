@@ -137,7 +137,7 @@ def kickAll(fro, chan, message):
 def kick(fro, chan, message):
 	# Get parameters
 	target = message[0].lower()
-	if target == "fokabot":
+	if target == "keesu":
 		return "Nope."
 
 	# Get target token and make sure is connected
@@ -620,7 +620,7 @@ def tillerinoLast(fro, chan, message):
 		rank = generalUtils.getRank(data["play_mode"], data["mods"], data["accuracy"],
 									data["300_count"], data["100_count"], data["50_count"], data["misses_count"])
 
-		ifPlayer = "{0} | ".format(fro) if chan != "FokaBot" else ""
+		ifPlayer = "{0} | ".format(fro) if chan != "Keesu" else ""
 		ifFc = " (FC)" if data["max_combo"] == data["fc"] else " {0}x/{1}x".format(data["max_combo"], data["fc"])
 		beatmapLink = "[http://osu.ppy.sh/b/{1} {0}]".format(data["sn"], data["bid"])
 
@@ -738,7 +738,7 @@ def report(fro, chan, message):
 		target = chat.fixUsernameForBancho(target)
 
 		# Make sure the target is not foka
-		if target.lower() == "fokabot":
+		if target.lower() == "keesu":
 			raise exceptions.invalidUserException()
 
 		# Make sure the user exists
@@ -762,7 +762,7 @@ def report(fro, chan, message):
 		adminMsg = "{user} has reported {target} for {reason} ({info})".format(user=fro, target=target, reason=reason, info=additionalInfo)
 
 		# Log report in #admin and on discord
-		chat.sendMessage("FokaBot", "#admin", adminMsg)
+		chat.sendMessage("Keesu", "#admin", adminMsg)
 		log.warning(adminMsg, discord="cm")
 	except exceptions.invalidUserException:
 		msg = "Hello, FokaBot here! You can't report me. I won't forget what you've tried to do. Watch out."
@@ -779,7 +779,7 @@ def report(fro, chan, message):
 			token = glob.tokens.getTokenFromUsername(fro)
 			if token is not None:
 				if token.irc:
-					chat.sendMessage("FokaBot", fro, msg)
+					chat.sendMessage("Keesu", fro, msg)
 				else:
 					token.enqueue(serverPackets.notification(msg))
 	return False
@@ -891,10 +891,10 @@ def multiplayer(fro, chan, message):
 			matchID = getMatchIDFromChannel(chan)
 			success = glob.matches.matches[matchID].start()
 			if not success:
-				chat.sendMessage("FokaBot", chan, "Couldn't start match. Make sure there are enough players and "
+				chat.sendMessage("Keesu", chan, "Couldn't start match. Make sure there are enough players and "
 												  "teams are valid. The match has been unlocked.")
 			else:
-				chat.sendMessage("FokaBot", chan, "Have fun!")
+				chat.sendMessage("Keesu", chan, "Have fun!")
 
 
 		def _decreaseTimer(t):
@@ -902,7 +902,7 @@ def multiplayer(fro, chan, message):
 				_start()
 			else:
 				if t % 10 == 0 or t <= 5:
-					chat.sendMessage("FokaBot", chan, "Match starts in {} seconds.".format(t))
+					chat.sendMessage("Keesu", chan, "Match starts in {} seconds.".format(t))
 				threading.Timer(1.00, _decreaseTimer, [t - 1]).start()
 
 		if len(message) < 2 or not message[1].isdigit():
